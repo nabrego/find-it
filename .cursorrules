@@ -1,0 +1,96 @@
+# Cursor Rules for Find-It Project
+
+## Project Overview
+This project is a fashion-focused reverse image search full stack web application where users can upload an outfit or clothing image and receive visually similar fashion items scraped from e-commerce sites. It uses React with Vite and Tailwind CSS for the frontend and FastAPI for the backend. OpenAI’s CLIP model generates vector embeddings from images, and FAISS is used to perform efficient nearest neighbor searches over a dataset of fashion item embeddings. Product metadata is scraped using BeautifulSoup and stored in a PostgreSQL database. The entire application is containerized using Docker and deployed to an Amazon EC2 instance using Docker Compose for orchestration.
+
+## Code Style Guidelines
+
+### TypeScript/React (Frontend)
+- Use TypeScript for all new code
+- Prefer functional components with hooks
+- Use meaningful variable and function names
+- Add proper TypeScript types for all functions and variables
+- Use modern ES6+ syntax (const/let, arrow functions, destructuring)
+- Follow React best practices (key props, proper state management)
+
+### Python (Backend)
+- Use Python 3.13+
+- Follow PEP 8 style guidelines
+- Use type hints for function parameters and return values
+- Prefer async/await for I/O operations
+- Use meaningful variable and function names
+- Add docstrings for public functions and classes
+
+## File Organization
+- Keep components small and focused
+- Separate business logic from UI components
+- Use consistent file naming (camelCase for React, snake_case for Python)
+- Group related functionality together
+
+## Testing
+- Write tests for critical functionality
+- Use descriptive test names
+- Aim for good test coverage
+
+## Git Practices
+- Write clear, descriptive commit messages
+- Keep commits focused and atomic
+- Use conventional commit format when possible
+
+## AI Assistant Guidelines
+- When suggesting code changes, explain the reasoning
+- Prioritize readability and maintainability
+- Suggest improvements for performance when relevant
+- Always consider security implications
+- Provide context for complex decisions
+
+## Project-Specific Rules
+- Maintain consistency with existing code patterns
+- Follow the established project structure
+- Consider both frontend and backend implications when making changes
+- Ensure proper error handling and user feedback
+
+## ML/AI Guidelines
+- Use OpenAI CLIP model for generating image embeddings
+- Implement FAISS for efficient nearest neighbor searches
+- Optimize vector similarity calculations for fashion items
+- Handle large-scale embedding datasets efficiently
+- Cache embeddings to improve performance
+- Validate embedding quality and similarity thresholds
+
+## Web Scraping Guidelines
+- Use BeautifulSoup for parsing e-commerce product pages
+- Implement respectful scraping with appropriate delays
+- Handle dynamic content and JavaScript-rendered pages
+- Extract structured product metadata (price, brand, category, etc.)
+- Implement error handling for failed scraping attempts
+- Respect robots.txt and website terms of service
+- Use rotating user agents and proxy handling when necessary
+
+## Database Guidelines
+- Use PostgreSQL for storing product metadata and embeddings
+- Implement proper indexing for similarity search queries
+- Design schema to efficiently store fashion item attributes
+- Use connection pooling for database performance
+- Implement data validation and sanitization
+- Handle database migrations properly
+- Optimize queries for large-scale fashion datasets
+
+## Docker/DevOps Guidelines
+- Containerize all application components using Docker
+- Use Docker Compose for local development and production orchestration
+- Implement proper environment variable management
+- Optimize Docker images for size and security
+- Set up proper logging and monitoring
+- Implement health checks for all services
+- Use multi-stage builds to reduce image size
+- Configure proper networking between containers
+
+## Image Processing Guidelines
+- Handle various image formats (JPEG, PNG, WebP) for fashion items
+- Implement image preprocessing for CLIP model input
+- Optimize image storage and retrieval
+- Handle image resizing and compression appropriately
+- Implement proper error handling for corrupted images
+- Use efficient image processing libraries (Pillow, OpenCV)
+- Consider image metadata extraction for fashion items 
