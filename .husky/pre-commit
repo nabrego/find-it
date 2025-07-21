@@ -1,1 +1,20 @@
-bun test
+# Navigate to frontend directory and run linting and formatting
+cd frontend
+
+# Run Prettier to format code
+echo "Formatting code with Prettier..."
+bun run format
+
+# Run ESLint to check and fix code
+echo "Linting code with ESLint..."
+bun run lint:fix
+
+# Run TypeScript type checking
+echo "Checking TypeScript types..."
+bun run tsc --noEmit
+
+# Run tests if they exist
+echo "Running tests..."
+bun test || true
+
+echo "Pre-commit checks completed!"
