@@ -16,20 +16,20 @@ services:
       - findit_network
 
   # Redis for caching and Celery
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    networks:
-      - findit_network
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     - findit_network
 
   # FastAPI Backend
   backend:
     build: ./backend
     environment:
       - DATABASE_URL=postgresql://findit_user:findit_password@postgres:5432/findit_db
-      - REDIS_URL=redis://redis:6379
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # - REDIS_URL=redis://redis:6379
+      # - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - ./backend:/app
       - uploads_data:/app/uploads
@@ -38,7 +38,7 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
-      - redis
+      # - redis
     networks:
       - findit_network
 
@@ -53,21 +53,21 @@ services:
       - findit_network
 
   # Optional: Celery Worker for background tasks
-  celery_worker:
-    build: ./backend
-    command: celery -A app.tasks.celery_app worker --loglevel=info
-    environment:
-      - DATABASE_URL=postgresql://findit_user:findit_password@postgres:5432/findit_db
-      - REDIS_URL=redis://redis:6379
-    volumes:
-      - ./backend:/app
-      - uploads_data:/app/uploads
-      - embeddings_data:/app/data
-    depends_on:
-      - postgres
-      - redis
-    networks:
-      - findit_network
+  # celery_worker:
+  #   build: ./backend
+  #   command: celery -A app.tasks.celery_app worker --loglevel=info
+  #   environment:
+  #     - DATABASE_URL=postgresql://findit_user:findit_password@postgres:5432/findit_db
+  #     - REDIS_URL=redis://redis:6379
+  #   volumes:
+  #     - ./backend:/app
+  #     - uploads_data:/app/uploads
+  #     - embeddings_data:/app/data
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #   networks:
+  #     - findit_network
 
 volumes:
   postgres_data:
