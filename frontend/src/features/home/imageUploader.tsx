@@ -3,7 +3,6 @@ import { ArrowUpTrayIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useRef, useState } from 'react';
 
 export const ImageUploader = () => {
-   
   const [file, setFile] = useState<File | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
